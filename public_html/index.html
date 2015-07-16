@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        
+
+    </head>
+    <body>
+        <h1>MatchLess Evaluator</h1>
+        <input data-bind="value: message, valueUpdate: 'afterkeydown'">
+        <p>
+        <textarea data-bind="value: steps, valueUpdate: 'afterkeydown'">
+        </textarea>>
+        <br>
+        <button data-bind="click: $root.callExpEvaluation">Evaluate</button>
+        
+        <div id="scene">
+            <span id="words" data-bind="foreach: words">
+                <span data-bind="text: $data, css: { 'rotate' : $root.rotating } "></span>
+            </span>
+        </div>
+        
+        <!-- boot bck2brwsr -->
+        <script type="text/javascript" src="bck2brwsr.js"></script>
+        <script>
+            var vm = bck2brwsr('MlEval.js');
+            var c = vm.loadClass('MlEval.MlEval.Main');
+            c.invoke('onPageLoad');
+        </script>
+    </body>
+</html>
